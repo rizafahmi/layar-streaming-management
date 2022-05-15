@@ -1,0 +1,35 @@
+<h1>Livestream Sessions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Subtitle</th>
+      <th>Description</th>
+      <th>Live url</th>
+      <th>Is active</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for session <- @sessions do %>
+    <tr>
+      <td><%= session.title %></td>
+      <td><%= session.subtitle %></td>
+      <td><%= session.description %></td>
+      <td><%= session.live_url %></td>
+      <td><%= session.is_active %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.session_path(@conn, :show, session) %></span>
+        <span><%= link "Activate", to: Routes.session_path(@conn, :activate, session), method: :put %></span>
+        <span><%= link "Edit", to: Routes.session_path(@conn, :edit, session) %></span>
+        <span><%= link "Delete", to: Routes.session_path(@conn, :delete, session), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Session", to: Routes.session_path(@conn, :new) %></span>

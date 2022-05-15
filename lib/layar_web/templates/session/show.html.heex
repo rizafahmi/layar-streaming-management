@@ -1,0 +1,33 @@
+<h1>Show Livestream Session</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @session.title %>
+  </li>
+
+  <li>
+    <strong>Subtitle:</strong>
+    <%= @session.subtitle %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @session.description %>
+  </li>
+
+  <li>
+    <strong>Live url:</strong>
+    <%= @session.live_url %>
+  </li>
+
+  <li>
+    <strong>Is active:</strong>
+    <%= @session.is_active %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.session_path(@conn, :edit, @session) %></span> |
+<span><%= link "Back", to: Routes.session_path(@conn, :index) %></span>

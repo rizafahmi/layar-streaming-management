@@ -18,6 +18,8 @@ defmodule LayarWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/sessions", SessionController
+    put "/sessions/:id/activate", SessionController, :activate
   end
 
   # Other scopes may use custom stacks.
