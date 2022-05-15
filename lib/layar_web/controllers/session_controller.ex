@@ -66,8 +66,8 @@ defmodule LayarWeb.SessionController do
     Stream.deactivate_all_sessions!()
 
     case Stream.update_session(session, %{"is_active" => true}) do
-      {:ok, session} ->
-        other_session = Stream.get_session!()
+      {:ok, _session} ->
+        # other_session = Stream.get_session!()
 
         conn
         |> put_flash(:info, "Session activated successfully.")

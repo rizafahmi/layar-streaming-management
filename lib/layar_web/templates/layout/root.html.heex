@@ -19,7 +19,7 @@
     <div class="header header-fixed unselectable header-animated">
       <div class="header-brand">
         <div class="nav-item no-hover">
-          <h6 class="title">My App</h6>
+          <h6 class="title"><a href="/">Layar</a></h6>
         </div>
         <div class="nav-item nav-btn" id="header-btn"> <span></span> <span></span> <span></span> </div>
       </div>
@@ -31,9 +31,8 @@
           <div class="nav-item has-sub toggle-hover" id="dropdown">
             <a class="nav-dropdown-link">Menu</a>
             <ul class="dropdown-menu dropdown-animated" role="menu">
-              <li role="menu-item"><a href="#">First Item</a></li>
-              <li role="menu-item"><a href="#">Second Item</a></li>
-              <li role="menu-item"><a href="#">Third Item</a></li>
+              <li role="menu-item"><%= link("Session", to: Routes.session_path(@conn, :index)) %></li>
+              <!-- <li role="menu-item"><%= link("Screen", to: Routes.screen_path(@conn, :index)) %></li> -->
             </ul>
           </div>
         </div>
