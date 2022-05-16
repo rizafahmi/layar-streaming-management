@@ -1,0 +1,28 @@
+<h1>Show Screen</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @screen.name %>
+  </li>
+
+  <li>
+    <strong>Slug:</strong>
+    <%= @screen.slug %>
+  </li>
+
+  <li>
+    <strong>Html content:</strong>
+    <%= @screen.html_content %>
+  </li>
+
+  <li>
+    <strong>Screen size:</strong>
+    <%= @screen.screen_size %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.screen_path(@conn, :edit, @screen) %></span> |
+<span><%= link "Back", to: Routes.screen_path(@conn, :index) %></span>

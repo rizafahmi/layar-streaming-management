@@ -62,4 +62,64 @@ defmodule Layar.OverlayTest do
       assert %Ecto.Changeset{} = Overlay.change_theme(theme)
     end
   end
+
+  describe "screens" do
+    alias Layar.Overlay.Screen
+
+    import Layar.OverlayFixtures
+
+    @invalid_attrs %{html_content: nil, name: nil, screen_size: nil, slug: nil}
+
+    test "list_screens/0 returns all screens" do
+      screen = screen_fixture()
+      assert Overlay.list_screens() == [screen]
+    end
+
+    test "get_screen!/1 returns the screen with given id" do
+      screen = screen_fixture()
+      assert Overlay.get_screen!(screen.id) == screen
+    end
+
+    test "create_screen/1 with valid data creates a screen" do
+      valid_attrs = %{html_content: "some html_content", name: "some name", screen_size: "some screen_size", slug: "some slug"}
+
+      assert {:ok, %Screen{} = screen} = Overlay.create_screen(valid_attrs)
+      assert screen.html_content == "some html_content"
+      assert screen.name == "some name"
+      assert screen.screen_size == "some screen_size"
+      assert screen.slug == "some slug"
+    end
+
+    test "create_screen/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Overlay.create_screen(@invalid_attrs)
+    end
+
+    test "update_screen/2 with valid data updates the screen" do
+      screen = screen_fixture()
+      update_attrs = %{html_content: "some updated html_content", name: "some updated name", screen_size: "some updated screen_size", slug: "some updated slug"}
+
+      assert {:ok, %Screen{} = screen} = Overlay.update_screen(screen, update_attrs)
+      assert screen.html_content == "some updated html_content"
+      assert screen.name == "some updated name"
+      assert screen.screen_size == "some updated screen_size"
+      assert screen.slug == "some updated slug"
+    end
+
+    test "update_screen/2 with invalid data returns error changeset" do
+      screen = screen_fixture()
+      assert {:error, %Ecto.Changeset{}} = Overlay.update_screen(screen, @invalid_attrs)
+      assert screen == Overlay.get_screen!(screen.id)
+    end
+
+    test "delete_screen/1 deletes the screen" do
+      screen = screen_fixture()
+      assert {:ok, %Screen{}} = Overlay.delete_screen(screen)
+      assert_raise Ecto.NoResultsError, fn -> Overlay.get_screen!(screen.id) end
+    end
+
+    test "change_screen/1 returns a screen changeset" do
+      screen = screen_fixture()
+      assert %Ecto.Changeset{} = Overlay.change_screen(screen)
+    end
+  end
 end

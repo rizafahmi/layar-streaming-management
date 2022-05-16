@@ -8,6 +8,8 @@ defmodule Layar.Overlay.Theme do
     field :slug, :string
     field :thumbnail, :string
 
+    has_many(:screens, Layar.Overlay.Screen)
+
     timestamps()
   end
 

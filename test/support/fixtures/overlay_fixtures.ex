@@ -20,4 +20,21 @@ defmodule Layar.OverlayFixtures do
 
     theme
   end
+
+  @doc """
+  Generate a screen.
+  """
+  def screen_fixture(attrs \\ %{}) do
+    {:ok, screen} =
+      attrs
+      |> Enum.into(%{
+        html_content: "some html_content",
+        name: "some name",
+        screen_size: "some screen_size",
+        slug: "some slug"
+      })
+      |> Layar.Overlay.create_screen()
+
+    screen
+  end
 end

@@ -21,6 +21,7 @@ defmodule LayarWeb.Router do
     resources "/sessions", SessionController
     put "/sessions/:id/activate", SessionController, :activate
     resources "/themes", ThemeController
+    resources "/screens", ScreenController
   end
 
   # Other scopes may use custom stacks.
