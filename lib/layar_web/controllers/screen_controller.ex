@@ -68,4 +68,16 @@ defmodule LayarWeb.ScreenController do
     |> put_flash(:info, "Screen deleted successfully.")
     |> redirect(to: Routes.screen_path(conn, :index))
   end
+
+  def overlay(conn, %{"theme_slug" => theme_slug, "screen_slug" => screen_slug}) do
+    query = from(t in Theme,
+      join: s in Screen, on: s.theme_id == t.id,
+      select: {s.html_content}, where: t.slug == ^theme_slug, where: s.slug == ^screen_slug)
+    {html_content} = Repo.one(query)
+
+    conn
+    |> put_layout(false)
+    |> put_root_layout(false)
+    |> render("overlay.html", html_content: html_content)
+  end
 end

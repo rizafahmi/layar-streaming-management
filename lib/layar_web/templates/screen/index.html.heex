@@ -25,6 +25,7 @@
       <td>
         <span><%= link "Show", to: Routes.screen_path(@conn, :show, screen) %></span>
         <span><%= link "Edit", to: Routes.screen_path(@conn, :edit, screen) %></span>
+        <span><%= link "Overlay", to: Routes.screen_path(@conn, :overlay, screen.theme.slug, screen.slug), target: "_blank" %></span>
         <span><%= link "Delete", to: Routes.screen_path(@conn, :delete, screen), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
