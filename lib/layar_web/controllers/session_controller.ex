@@ -73,7 +73,7 @@ defmodule LayarWeb.SessionController do
         |> put_flash(:info, "Session activated successfully.")
         |> redirect(to: Routes.session_path(conn, :index))
 
-      {:error, %Ecto.Changeset{} = changeset} ->
+      {:error, %Ecto.Changeset{} = _changeset} ->
         conn
         |> put_flash(:info, "Session not activated.")
         |> redirect(to: Routes.session_path(conn, :index))
