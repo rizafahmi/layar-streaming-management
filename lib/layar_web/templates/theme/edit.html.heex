@@ -1,0 +1,5 @@
+<h1>Edit Theme</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.theme_path(@conn, :update, @theme)) %>
+
+<span><%= link "Back", to: Routes.theme_path(@conn, :index) %></span>

@@ -1,0 +1,28 @@
+<h1>Show Theme</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @theme.name %>
+  </li>
+
+  <li>
+    <strong>Desc:</strong>
+    <%= @theme.desc %>
+  </li>
+
+  <li>
+    <strong>Slug:</strong>
+    <%= @theme.slug %>
+  </li>
+
+  <li>
+    <strong>Thumbnail:</strong>
+    <%= @theme.thumbnail %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.theme_path(@conn, :edit, @theme) %></span> |
+<span><%= link "Back", to: Routes.theme_path(@conn, :index) %></span>

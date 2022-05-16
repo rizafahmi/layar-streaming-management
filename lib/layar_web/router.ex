@@ -20,6 +20,7 @@ defmodule LayarWeb.Router do
     get "/", PageController, :index
     resources "/sessions", SessionController
     put "/sessions/:id/activate", SessionController, :activate
+    resources "/themes", ThemeController
   end
 
   # Other scopes may use custom stacks.

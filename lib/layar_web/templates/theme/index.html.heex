@@ -1,0 +1,32 @@
+<h1>Listing Themes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Desc</th>
+      <th>Slug</th>
+      <th>Thumbnail</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for theme <- @themes do %>
+    <tr>
+      <td><%= theme.name %></td>
+      <td><%= theme.desc %></td>
+      <td><%= theme.slug %></td>
+      <td><%= theme.thumbnail %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.theme_path(@conn, :show, theme) %></span>
+        <span><%= link "Edit", to: Routes.theme_path(@conn, :edit, theme) %></span>
+        <span><%= link "Delete", to: Routes.theme_path(@conn, :delete, theme), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Theme", to: Routes.theme_path(@conn, :new) %></span>
