@@ -76,8 +76,6 @@ defmodule LayarWeb.ScreenController do
     {html_content} = Repo.one(query)
 
     conn
-    |> put_layout(false)
-    |> put_root_layout(false)
     |> render("overlay.html", html_content: html_content)
   end
 end

@@ -14,6 +14,10 @@ defmodule LayarWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :plain_layout do
+    plug :put_layout, {LayarWeb.PlainLayoutView, :index}
+  end
+
   scope "/", LayarWeb do
     pipe_through :browser
 
@@ -22,7 +26,13 @@ defmodule LayarWeb.Router do
     put "/sessions/:id/activate", SessionController, :activate
     resources "/themes", ThemeController
     resources "/screens", ScreenController
-    get "/overlay/:theme_slug/:screen_slug", ScreenController, :overlay
+
+  end
+
+  scope "/overlay", LayarWeb do
+    pipe_through [:plain_layout]
+
+    get "/:theme_slug/:screen_slug", ScreenController, :overlay
   end
 
   # Other scopes may use custom stacks.

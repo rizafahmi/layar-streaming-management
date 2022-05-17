@@ -54,6 +54,7 @@ config :layar, LayarWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/static/fonts/.*(woff)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/layar_web/(live|views)/.*(ex)$",
       ~r"lib/layar_web/templates/.*(eex)$"
