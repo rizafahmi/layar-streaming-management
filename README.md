@@ -2,6 +2,8 @@
 
 Streaming management, screen management, chat etc.
 
+## TODO
+
 - [ ] Automate/generate thumbnail for livestream
 
 To start your Phoenix server:
