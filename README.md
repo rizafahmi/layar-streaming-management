@@ -1,5 +1,9 @@
 # Layar
 
+Streaming management, screen management, chat etc.
+
+- [ ] Automate/generate thumbnail for livestream
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
